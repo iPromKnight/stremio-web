@@ -70,7 +70,7 @@ const ModalDialog = ({ className, title, buttons, children, dataset, onCloseRequ
                             :
                             null
                     }
-                    <div className={styles['modal-dialog-content']}>
+                    <div className={styles['body-container']}>
                         {children}
                     </div>
                     {

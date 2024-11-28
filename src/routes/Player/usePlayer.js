@@ -96,14 +96,37 @@ const usePlayer = (urlParams) => {
         }, 'player');
     }, []);
     const timeChanged = React.useCallback((time, duration, device) => {
-        core.transport.dispatch({
-            action: 'Player',
-            args: {
-                action: 'TimeChanged',
-                args: { time, duration, device }
-            }
-        }, 'player');
+        if (typeof time === 'number' && typeof duration === 'number' && typeof device === 'string') {
+            core.transport.dispatch({
+                action: 'Player',
+                args: {
+                    action: 'TimeChanged',
+                    args: {
+                        time: Math.round(time),
+                        duration,
+                        device,
+                    }
+                }
+            }, 'player');
+        }
     }, []);
+
+    const seek = React.useCallback((time, duration, device) => {
+        if (typeof time === 'number' && typeof duration === 'number' && typeof device === 'string') {
+            core.transport.dispatch({
+                action: 'Player',
+                args: {
+                    action: 'Seek',
+                    args: {
+                        time: Math.round(time),
+                        duration,
+                        device,
+                    }
+                }
+            }, 'player');
+        }
+    }, []);
+
     const ended = React.useCallback(() => {
         core.transport.dispatch({
             action: 'Player',
@@ -129,8 +152,9 @@ const usePlayer = (urlParams) => {
             }
         }, 'player');
     }, []);
+
     const player = useModelState({ model: 'player', action, map });
-    return [player, videoParamsChanged, timeChanged, pausedChanged, ended, nextVideo];
+    return [player, videoParamsChanged, timeChanged, seek, pausedChanged, ended, nextVideo];
 };
 
 module.exports = usePlayer;

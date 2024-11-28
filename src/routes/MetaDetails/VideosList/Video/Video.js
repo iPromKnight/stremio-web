@@ -47,6 +47,7 @@ const Video = ({ className, id, title, thumbnail, episode, released, upcoming, w
     }, []);
     const toggleWatchedOnClick = React.useCallback((event) => {
         event.preventDefault();
+        event.stopPropagation();
         closeMenu();
         core.transport.dispatch({
             action: 'MetaDetails',
