@@ -36,7 +36,7 @@ const Item = ({ url }: Props) => {
     return (
         <div className={styles['item']}>
             <div className={styles['content']}>
-                <Checkbox className={styles['check']} value={selected} onChange={handleSelect} disabled={selected} />
+                <Checkbox className={styles['check']} checked={selected} onChange={handleSelect} disabled={selected} />
                 <div className={styles['label']}>{url}</div>
             </div>
             <div className={styles['actions']}>
