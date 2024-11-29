@@ -48,7 +48,6 @@ const useStreamingServer = require('./useStreamingServer');
 const useTorrent = require('./useTorrent');
 const useTranslate = require('./useTranslate');
 const EventModal = require('./EventModal');
-const { default: Checkbox } = require('./Checkbox');
 
 module.exports = {
     AddonDetailsModal,
@@ -80,7 +79,6 @@ module.exports = {
     SharePrompt,
     Slider,
     TextInput,
-    Checkbox,
     ToastProvider,
     useToast,
     TooltipProvider,
