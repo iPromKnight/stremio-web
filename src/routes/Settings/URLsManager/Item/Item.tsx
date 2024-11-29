@@ -9,7 +9,7 @@ import useStreamingServer from 'stremio/common/useStreamingServer';
 import Icon from '@stremio/stremio-icons/react';
 import styles from './Item.less';
 import classNames from 'classnames';
-import Checkbox from 'stremio/common/Checkbox';
+import RadioButton from 'stremio/common/RadioButton/RadioButton';
 import useStreamingServerUrls from '../useStreamingServerUrls';
 
 type Props = {
@@ -37,7 +37,7 @@ const Item = ({ url }: Props) => {
     return (
         <div className={styles['item']}>
             <div className={styles['content']}>
-                <Checkbox className={styles['check']} checked={selected} onChange={handleSelect} disabled={selected} />
+                <RadioButton className={styles['selectable']} selected={selected} onChange={handleSelect} disabled={selected} />
                 <div className={styles['label']}>{url}</div>
             </div>
             <div className={styles['actions']}>
