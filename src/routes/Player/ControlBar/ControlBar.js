@@ -44,7 +44,7 @@ const ControlBar = ({
 }) => {
     const { chromecast } = useServices();
     const [chromecastServiceActive, setChromecastServiceActive] = React.useState(() => chromecast.active);
-    const [buttonsMenuOpen, , , toogleButtonsMenu] = useBinaryState(false);
+    const [buttonsMenuOpen, , , toggleButtonsMenu] = useBinaryState(false);
     const onSubtitlesButtonMouseDown = React.useCallback((event) => {
         event.nativeEvent.subtitlesMenuClosePrevented = true;
     }, []);
@@ -141,7 +141,7 @@ const ControlBar = ({
                     onVolumeChangeRequested={onVolumeChangeRequested}
                 />
                 <div className={styles['spacing']} />
-                <Button className={styles['control-bar-buttons-menu-button']} onClick={toogleButtonsMenu}>
+                <Button className={styles['control-bar-buttons-menu-button']} onClick={toggleButtonsMenu}>
                     <Icon className={styles['icon']} name={'more-vertical'} />
                 </Button>
                 <div className={classnames(styles['control-bar-buttons-menu-container'], { 'open': buttonsMenuOpen })}>

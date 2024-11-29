@@ -24,7 +24,7 @@ const ConsentToggle = React.forwardRef(({ className, label, link, href, onToggle
         event.nativeEvent.togglePrevented = true;
     }, []);
     return (
-        <Toggle {...props} ref={ref} className={classnames(className, styles['consent-toogle-container'])} onClick={toggleOnClick}>
+        <Toggle {...props} ref={ref} className={classnames(className, styles['consent-toggle-container'])} onClick={toggleOnClick}>
             <div className={styles['label']}>
                 {label}
                 {' '}

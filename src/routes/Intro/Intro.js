@@ -54,7 +54,7 @@ const Intro = ({ queryParams }) => {
                         error: '',
                         [action.name]: action.value
                     };
-                case 'toogle-checkbox':
+                case 'toggle-checkbox':
                     return {
                         ...state,
                         error: '',
@@ -210,13 +210,13 @@ const Intro = ({ queryParams }) => {
         termsRef.current.focus();
     }, []);
     const toggleTermsAccepted = React.useCallback(() => {
-        dispatch({ type: 'toogle-checkbox', name: 'termsAccepted' });
+        dispatch({ type: 'toggle-checkbox', name: 'termsAccepted' });
     }, []);
     const togglePrivacyPolicyAccepted = React.useCallback(() => {
-        dispatch({ type: 'toogle-checkbox', name: 'privacyPolicyAccepted' });
+        dispatch({ type: 'toggle-checkbox', name: 'privacyPolicyAccepted' });
     }, []);
     const toggleMarketingAccepted = React.useCallback(() => {
-        dispatch({ type: 'toogle-checkbox', name: 'marketingAccepted' });
+        dispatch({ type: 'toggle-checkbox', name: 'marketingAccepted' });
     }, []);
     const switchFormOnClick = React.useCallback(() => {
         const queryParams = new URLSearchParams([['form', state.form === SIGNUP_FORM ? LOGIN_FORM : SIGNUP_FORM]]);

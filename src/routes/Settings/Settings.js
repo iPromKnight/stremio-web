@@ -338,7 +338,7 @@ const Settings = () => {
                                         <div className={styles['label']}>{ t('SETTINGS_FULLSCREEN_EXIT') }</div>
                                     </div>
                                     <Toggle
-                                        className={classnames(styles['option-input-container'], styles['toogle-container'])}
+                                        className={classnames(styles['option-input-container'], styles['toggle-container'])}
                                         {...escExitFullscreenToggle}
                                     />
                                 </div>
@@ -401,7 +401,7 @@ const Settings = () => {
                                 <div className={styles['label']}>{ t('SETTINGS_SURROUND_SOUND') }</div>
                             </div>
                             <Toggle
-                                className={classnames(styles['option-input-container'], styles['toogle-container'])}
+                                className={classnames(styles['option-input-container'], styles['toggle-container'])}
                                 tabIndex={-1}
                                 {...surroundSoundToggle}
                             />
@@ -435,7 +435,7 @@ const Settings = () => {
                                 <div className={styles['label']}>{ t('SETTINGS_PLAY_IN_BACKGROUND') }</div>
                             </div>
                             <Toggle
-                                className={classnames(styles['option-input-container'], styles['toogle-container'])}
+                                className={classnames(styles['option-input-container'], styles['toggle-container'])}
                                 disabled={true}
                                 tabIndex={-1}
                                 {...playInBackgroundToggle}
@@ -452,7 +452,7 @@ const Settings = () => {
                                 <div className={styles['label']}>{ t('AUTO_PLAY') }</div>
                             </div>
                             <Toggle
-                                className={classnames(styles['option-input-container'], styles['toogle-container'])}
+                                className={classnames(styles['option-input-container'], styles['toggle-container'])}
                                 {...bingeWatchingToggle}
                             />
                         </div>
@@ -486,7 +486,7 @@ const Settings = () => {
                                 <div className={styles['label']}>{ t('SETTINGS_HWDEC') }</div>
                             </div>
                             <Toggle
-                                className={classnames(styles['option-input-container'], styles['toogle-container'])}
+                                className={classnames(styles['option-input-container'], styles['toggle-container'])}
                                 disabled={true}
                                 tabIndex={-1}
                                 {...hardwareDecodingToggle}
