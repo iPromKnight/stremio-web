@@ -14,8 +14,8 @@ type Props = {
 const AddItem = ({ onCancel, handleAddUrl }: Props) => {
     const [inputValue, setInputValue] = useState('');
 
-    const handleValueChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-        setInputValue(event.target.value);
+    const handleValueChange = useCallback(({ target }: ChangeEvent<HTMLInputElement>) => {
+        setInputValue(target.value);
     }, []);
 
     const onSumbit = useCallback(() => {

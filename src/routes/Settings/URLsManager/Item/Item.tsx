@@ -18,9 +18,10 @@ type Props = {
 
 const Item = ({ url }: Props) => {
     const { t } = useTranslation();
+    const profile = useProfile();
     const streamingServer = useStreamingServer();
     const { deleteServerUrl, selectServerUrl } = useStreamingServerUrls();
-    const profile = useProfile();
+
     const selected = useMemo(() => profile.settings.streamingServerUrl === url, [url, profile.settings]);
     const defaultUrl = useMemo(() => url === DEFAULT_STREAMING_SERVER_URL, [url]);
 
