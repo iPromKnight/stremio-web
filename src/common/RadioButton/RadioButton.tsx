@@ -30,29 +30,25 @@ const RadioButton = ({ disabled, selected, className, onChange, error }: Props) 
         <div className={classNames(styles['radio-button'], className)}>
             <label>
                 <div
-                    className={classNames({
-                        [styles['selected']]: selected,
-                        [styles['not-selected']]: !selected,
-                        [styles['error']]: error,
-                        [styles['disabled']]: disabled,
-                    })}
+                    className={classNames(
+                        styles['radio-container'],
+                        { [styles['selected']]: selected },
+                        { [styles['disabled']]: disabled },
+                        { [styles['error']]: error }
+                    )}
+                    role={'radio'}
+                    tabIndex={disabled ? -1 : 0}
+                    aria-checked={selected}
+                    onKeyDown={onKeyDown}
                 >
-                    <div
-                        className={styles['radio-container']}
-                        role={'radio'}
-                        tabIndex={disabled ? -1 : 0}
-                        aria-checked={selected}
-                        onKeyDown={onKeyDown}
-                    >
-                        <input
-                            type={'radio'}
-                            checked={selected}
-                            disabled={disabled}
-                            onChange={handleSelect}
-                            className={styles['input']}
-                        />
-                        <span className={styles['inner-circle']} />
-                    </div>
+                    <input
+                        type={'radio'}
+                        checked={selected}
+                        disabled={disabled}
+                        onChange={handleSelect}
+                        className={styles['input']}
+                    />
+                    <span className={styles['inner-circle']} />
                 </div>
             </label>
         </div>
