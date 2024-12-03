@@ -3,7 +3,7 @@
 const AddonDetailsModal = require('./AddonDetailsModal');
 const { default: BottomSheet } = require('./BottomSheet');
 const Button = require('./Button');
-const Checkbox = require('./Checkbox');
+const Toggle = require('./Toggle');
 const { default: Chips } = require('./Chips');
 const ColorInput = require('./ColorInput');
 const ContinueWatchingItem = require('./ContinueWatchingItem');
@@ -26,7 +26,7 @@ const SearchBar = require('./SearchBar');
 const StreamingServerWarning = require('./StreamingServerWarning');
 const SharePrompt = require('./SharePrompt');
 const Slider = require('./Slider');
-const TextInput = require('./TextInput');
+const { default: TextInput } = require('./TextInput');
 const { ToastProvider, useToast } = require('./Toast');
 const { TooltipProvider, Tooltip } = require('./Tooltips');
 const comparatorWithPriorities = require('./comparatorWithPriorities');
@@ -53,7 +53,7 @@ module.exports = {
     AddonDetailsModal,
     BottomSheet,
     Button,
-    Checkbox,
+    Toggle,
     Chips,
     ColorInput,
     ContinueWatchingItem,
