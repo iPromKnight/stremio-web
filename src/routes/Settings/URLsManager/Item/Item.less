@@ -88,7 +88,7 @@
                 color: var(--primary-foreground-color);
             }
 
-            &:hover {
+            &:hover, &:focus {
                 background-color: var(--overlay-color);
 
                 .icon {
@@ -121,6 +121,10 @@
 
             .delete {
                 right: 0.5rem;
+
+                .icon {
+                    opacity: 0.6;
+                }
             }
         }
     }

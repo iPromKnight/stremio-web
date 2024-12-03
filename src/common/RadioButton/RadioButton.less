@@ -1,5 +1,7 @@
 // Copyright (C) 2017-2024 Smart code 203358507
 
+@import (reference) '~@stremio/stremio-colors/less/stremio-colors.less';
+
 .radio-button {
     display: flex;
     align-items: center;
@@ -20,6 +22,9 @@
         outline: none;
         user-select: none;
         margin-right: 0.75rem;
+        outline-width: var(--focus-outline-size);
+        outline-color: @color-surface-light5;
+        outline-offset: calc(-1 * var(--focus-outline-size));
 
         input[type='radio'] {
             opacity: 0;
@@ -52,6 +57,10 @@
                 background-color: var(--primary-accent-color);
                 opacity: 1;
             }
+        }
+
+        &:focus {
+            outline-style: solid;
         }
     }
 }
