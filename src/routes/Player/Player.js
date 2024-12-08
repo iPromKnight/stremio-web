@@ -271,10 +271,9 @@ const Player = ({ urlParams, queryParams }) => {
 
     React.useEffect(() => {
         setError(null);
-        if (player.selected === null) {
-            video.unload();
-        } else if (streamingServer.settings !== null && streamingServer.settings.type !== 'Loading' &&
-            (player.selected.metaRequest === null || (player.metaItem !== null && player.metaItem.type !== 'Loading'))) {
+        video.unload();
+
+        if (player.selected && streamingServer.settings?.type !== 'Loading') {
             video.load({
                 stream: {
                     ...player.selected.stream,
@@ -309,7 +308,7 @@ const Player = ({ urlParams, queryParams }) => {
                 shellTransport: shell.active ? shell.transport : null,
             });
         }
-    }, [streamingServer.baseUrl, player.selected, player.metaItem, forceTranscoding, casting]);
+    }, [streamingServer.baseUrl, player.selected, forceTranscoding, casting]);
     React.useEffect(() => {
         if (video.state.stream !== null) {
             const tracks = player.subtitles.map((subtitles) => ({

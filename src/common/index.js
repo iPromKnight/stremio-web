@@ -29,6 +29,7 @@ const Slider = require('./Slider');
 const { default: TextInput } = require('./TextInput');
 const { ToastProvider, useToast } = require('./Toast');
 const { TooltipProvider, Tooltip } = require('./Tooltips');
+const Video = require('./Video');
 const comparatorWithPriorities = require('./comparatorWithPriorities');
 const CONSTANTS = require('./CONSTANTS');
 const { withCoreSuspender, useCoreSuspender } = require('./CoreSuspender');
@@ -83,6 +84,7 @@ module.exports = {
     useToast,
     TooltipProvider,
     Tooltip,
+    Video,
     comparatorWithPriorities,
     CONSTANTS,
     withCoreSuspender,

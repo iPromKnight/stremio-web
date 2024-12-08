@@ -4,12 +4,13 @@ const React = require('react');
 const PropTypes = require('prop-types');
 const classnames = require('classnames');
 const { t } = require('i18next');
-const { Image, SearchBar, Toggle } = require('stremio/common');
+const { useServices } = require('stremio/services');
+const { Image, SearchBar, Toggle, Video } = require('stremio/common');
 const SeasonsBar = require('./SeasonsBar');
-const Video = require('./Video');
 const styles = require('./styles');
 
 const VideosList = ({ className, metaItem, libraryItem, season, seasonOnSelect, toggleNotifications }) => {
+    const { core } = useServices();
     const showNotificationsToggle = React.useMemo(() => {
         return metaItem?.content?.content?.inLibrary && metaItem?.content?.content?.videos?.length;
     }, [metaItem]);
@@ -59,6 +60,17 @@ const VideosList = ({ className, metaItem, libraryItem, season, seasonOnSelect, 
     const searchInputOnChange = React.useCallback((event) => {
         setSearch(event.currentTarget.value);
     }, []);
+
+    const onMarkVideoAsWatched = (video, watched) => {
+        core.transport.dispatch({
+            action: 'MetaDetails',
+            args: {
+                action: 'MarkVideoAsWatched',
+                args: [video, !watched]
+            }
+        });
+    };
+
     return (
         <div className={classnames(className, styles['videos-list-container'])}>
             {
@@ -120,16 +132,8 @@ const VideosList = ({ className, metaItem, libraryItem, season, seasonOnSelect, 
                                         .map((video, index) => (
                                             <Video
                                                 key={index}
-                                                id={video.id}
-                                                title={video.title}
-                                                thumbnail={video.thumbnail}
-                                                episode={video.episode}
-                                                released={video.released}
-                                                upcoming={video.upcoming}
-                                                watched={video.watched}
-                                                progress={video.progress}
-                                                deepLinks={video.deepLinks}
-                                                scheduled={video.scheduled}
+                                                {...video}
+                                                onMarkVideoAsWatched={onMarkVideoAsWatched}
                                             />
                                         ))
                                 }
