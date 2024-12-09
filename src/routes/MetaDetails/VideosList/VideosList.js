@@ -132,7 +132,16 @@ const VideosList = ({ className, metaItem, libraryItem, season, seasonOnSelect, 
                                         .map((video, index) => (
                                             <Video
                                                 key={index}
-                                                {...video}
+                                                id={video.id}
+                                                title={video.title}
+                                                thumbnail={video.thumbnail}
+                                                episode={video.episode}
+                                                released={video.released}
+                                                upcoming={video.upcoming}
+                                                watched={video.watched}
+                                                progress={video.progress}
+                                                deepLinks={video.deepLinks}
+                                                scheduled={video.scheduled}
                                                 onMarkVideoAsWatched={onMarkVideoAsWatched}
                                             />
                                         ))
