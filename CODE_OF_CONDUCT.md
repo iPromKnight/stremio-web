@@ -30,7 +30,7 @@ Project maintainers have the right and responsibility to remove, edit, or reject
 
 ## Scope
 
-This Code of Conduct applies within all project spaces, and also applies when an individual is officially representing the project or its community in public spaces. Examples include using an official project e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event.
+This Code of Conduct applies within all project spaces, and also applies when an individual is officially representing the project or its community in public spaces.
 
 ## Enforcement
 
