@@ -16,10 +16,6 @@ body:
     validations:
       required: true
 
-  - type: markdown
-    attributes:
-      value: "ℹ️ **Info**: You can find these version details in the app’s settings page, at the bottom."
-
   - type: dropdown
     id: browser
     attributes:
