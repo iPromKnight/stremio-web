@@ -30,17 +30,8 @@ Project maintainers have the right and responsibility to remove, edit, or reject
 
 ## Scope
 
-This Code of Conduct applies within all project spaces, and also applies when an individual is officially representing the project or its community in public spaces.
+This Code of Conduct applies within all `stremio-web` spaces, and also applies when an individual is officially representing the project or its community in public spaces.
 
 ## Enforcement
 
 Pls be nice or we will ban you `:)`
-
-## Attribution
-
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 2.1, available at [https://www.contributor-covenant.org/version/2/1/code_of_conduct.html](https://www.contributor-covenant.org/version/2/1/code_of_conduct.html).
-
-For answers to common questions about this code of conduct, see [https://www.contributor-covenant.org/faq](https://www.contributor-covenant.org/faq).  
-Translations are available at [https://www.contributor-covenant.org/translations](https://www.contributor-covenant.org/translations).
-
-[homepage]: https://www.contributor-covenant.org
