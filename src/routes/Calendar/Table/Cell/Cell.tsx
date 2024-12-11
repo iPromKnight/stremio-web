@@ -37,7 +37,7 @@ const Cell = ({ selected, monthInfo, date, items, onClick }: Props) => {
             <HorizontalScroll className={styles['items']}>
                 {
                     items.map(({ id, name, poster, deepLinks }) => (
-                        <Button key={id} className={styles['item']} href={deepLinks.metaDetailsStreams}>
+                        <Button key={id} className={styles['item']} href={deepLinks.metaDetailsStreams} tabIndex={-1}>
                             <Icon className={styles['icon']} name={'play'} />
                             <Image
                                 className={styles['poster']}
