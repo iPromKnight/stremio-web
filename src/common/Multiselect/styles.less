@@ -7,7 +7,7 @@
     popup-menu-container: menu-container;
 }
 
-@parent-height: 6rem;
+@parent-height: 10rem;
 
 .label-container {
     display: flex;
@@ -50,7 +50,7 @@
 
 .modal-container, .popup-menu-container {
     .menu-container {
-        max-height: calc(100dvh - var(--horizontal-nav-bar-size) - @parent-height);
+        max-height: calc(3.2rem * 7);
 
         .option-container {
             display: flex;
@@ -103,6 +103,14 @@
                 text-align: center;
                 color: @color-surface-light5-90;
             }
+        }
+    }
+}
+
+@media (orientation: landscape) and (max-width: @xsmall) {
+    .modal-container, .popup-menu-container {
+        .menu-container {
+            max-height: calc(100dvh - var(--horizontal-nav-bar-size) - @parent-height);
         }
     }
 }

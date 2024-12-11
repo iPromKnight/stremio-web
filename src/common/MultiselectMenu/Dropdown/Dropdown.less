@@ -2,7 +2,7 @@
 
 @import (reference) '~stremio/common/screen-sizes.less';
 
-@parent-height: 6rem;
+@parent-height: 10rem;
 
 .dropdown {
     background: var(--modal-background-color);
@@ -18,7 +18,7 @@
 
     &.open {
         display: block;
-        max-height: calc(100dvh - var(--horizontal-nav-bar-size) - @parent-height);
+        max-height: calc(3.3rem * 7);
         overflow: auto;
     }
 
@@ -31,6 +31,14 @@
 
         .back-button-icon {
             width: 1.5rem;
+        }
+    }
+}
+
+@media (orientation: landscape) and (max-width: @xsmall) {
+    .dropdown {
+        &.open {
+            max-height: calc(100dvh - var(--horizontal-nav-bar-size) - @parent-height);
         }
     }
 }
