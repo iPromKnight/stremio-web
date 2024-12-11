@@ -27,8 +27,8 @@ const Item = ({ url }: Props) => {
 
     const handleDelete = useCallback(() => {
         deleteServerUrl(url);
-        selectServerUrl(DEFAULT_STREAMING_SERVER_URL);
-    }, [url]);
+        selected && selectServerUrl(DEFAULT_STREAMING_SERVER_URL);
+    }, [url, selected]);
 
     const handleSelect = useCallback(() => {
         selectServerUrl(url);
