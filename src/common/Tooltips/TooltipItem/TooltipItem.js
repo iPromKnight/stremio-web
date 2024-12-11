@@ -10,14 +10,8 @@ const TooltipItem = React.memo(({ className, active, label, position, margin, pa
 
     const [style, setStyle] = React.useState(null);
 
-    const onTransitionEnd = React.useCallback(() => {
-        if (!active) {
-            setStyle(null);
-        }
-    }, [active]);
-
     React.useEffect(() => {
-        if (!ref.current) return setStyle(null);
+        if (!ref.current || !active) return setStyle(null);
 
         const tooltipBounds = ref.current.getBoundingClientRect();
         const parentBounds = parent.getBoundingClientRect();
@@ -47,7 +41,7 @@ const TooltipItem = React.memo(({ className, active, label, position, margin, pa
     }, [active, position, margin, parent, label]);
 
     return (
-        <div ref={ref} className={classNames(className, styles['tooltip-item'], { 'active': active })} style={style} onTransitionEnd={onTransitionEnd}>
+        <div ref={ref} className={classNames(className, styles['tooltip-item'], { 'active': active })} style={style}>
             { label }
         </div>
     );
