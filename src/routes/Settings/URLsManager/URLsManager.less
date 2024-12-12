@@ -8,7 +8,8 @@
 
     .header {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
+        padding: 0 3rem;
         align-items: center;
         
         .label {
@@ -16,6 +17,10 @@
             color: var(--primary-foreground-color);
             font-weight: 400;
             opacity: 0.6;
+
+            &:last-of-type {
+                padding-right: 3rem;
+            }
         }
     }
 

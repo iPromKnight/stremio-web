@@ -4,10 +4,10 @@
 
 .item {
     display: flex;
-    padding: 1rem 1.5rem;
-    border-radius: var(--border-radius);
+    padding: 0.7rem 1.5rem;
+    border-radius: 2.5rem;
     transition: 0.3s all ease-in-out;
-    background-color: transparent;
+    background-color: var(--overlay-color);
     border: 2px solid transparent;
     justify-content: space-between;
     position: relative;
@@ -34,7 +34,7 @@
     .actions {
         display: flex;
         gap: 1rem;
-        margin-right: 5rem;
+        padding-right: 4rem;
 
         .status {
             display: flex;
@@ -100,7 +100,7 @@
     }
 
     &:hover {
-        background-color: var(--overlay-color);
+        border: 2px solid var(--overlay-color);
     
         .actions {
             .delete {
@@ -114,13 +114,11 @@
 
 @media only screen and (max-width: @minimum) {
     .item {
-        padding: 1rem 0.5rem;
+        padding: 0.7rem 1rem;
 
         .actions {
-            margin-right: 4rem;
-
             .delete {
-                right: 0.5rem;
+                right: 1rem;
 
                 .icon {
                     opacity: 0.6;
