@@ -3,19 +3,34 @@
 const React = require('react');
 const PropTypes = require('prop-types');
 const classnames = require('classnames');
-const Video = require('../../MetaDetails/VideosList/Video');
+const { useServices } = require('stremio/services');
+const { Video } = require('stremio/common');
 const styles = require('./styles');
 
 const VideosMenu = ({ className, metaItem, seriesInfo }) => {
+    const { core } = useServices();
+
     const onMouseDown = React.useCallback((event) => {
         event.nativeEvent.videosMenuClosePrevented = true;
     }, []);
+
     const videos = React.useMemo(() => {
         return seriesInfo && typeof seriesInfo.season === 'number' && Array.isArray(metaItem.videos) ?
             metaItem.videos.filter(({ season }) => season === seriesInfo.season)
             :
             metaItem.videos;
     }, [metaItem, seriesInfo]);
+
+    const onMarkVideoAsWatched = (video, watched) => {
+        core.transport.dispatch({
+            action: 'Player',
+            args: {
+                action: 'MarkVideoAsWatched',
+                args: [video, !watched]
+            }
+        });
+    };
+
     return (
         <div className={classnames(className, styles['videos-menu-container'])} onMouseDown={onMouseDown}>
             {
@@ -32,6 +47,7 @@ const VideosMenu = ({ className, metaItem, seriesInfo }) => {
                         progress={video.progress}
                         deepLinks={video.deepLinks}
                         scheduled={video.scheduled}
+                        onMarkVideoAsWatched={onMarkVideoAsWatched}
                     />
                 ))
             }

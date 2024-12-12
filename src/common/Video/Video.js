@@ -4,15 +4,16 @@ const React = require('react');
 const PropTypes = require('prop-types');
 const classnames = require('classnames');
 const { t } = require('i18next');
-const { useServices } = require('stremio/services');
 const { useRouteFocused } = require('stremio-router');
 const { default: Icon } = require('@stremio/stremio-icons/react');
-const { Button, Image, Popup, useBinaryState } = require('stremio/common');
+const Button = require('stremio/common/Button');
+const Image = require('stremio/common/Image');
+const Popup = require('stremio/common/Popup');
+const useBinaryState = require('stremio/common/useBinaryState');
 const VideoPlaceholder = require('./VideoPlaceholder');
 const styles = require('./styles');
 
-const Video = ({ className, id, title, thumbnail, episode, released, upcoming, watched, progress, scheduled, deepLinks, ...props }) => {
-    const { core } = useServices();
+const Video = ({ className, id, title, thumbnail, episode, released, upcoming, watched, progress, scheduled, deepLinks, onMarkVideoAsWatched, ...props }) => {
     const routeFocused = useRouteFocused();
     const [menuOpen, , closeMenu, toggleMenu] = useBinaryState(false);
     const popupLabelOnMouseUp = React.useCallback((event) => {
@@ -49,13 +50,7 @@ const Video = ({ className, id, title, thumbnail, episode, released, upcoming, w
         event.preventDefault();
         event.stopPropagation();
         closeMenu();
-        core.transport.dispatch({
-            action: 'MetaDetails',
-            args: {
-                action: 'MarkVideoAsWatched',
-                args: [{ id, released }, !watched]
-            }
-        });
+        onMarkVideoAsWatched({ id, released }, watched);
     }, [id, released, watched]);
     const videoButtonOnClick = React.useCallback(() => {
         if (deepLinks) {
@@ -198,7 +193,8 @@ Video.propTypes = {
     deepLinks: PropTypes.shape({
         metaDetailsStreams: PropTypes.string,
         player: PropTypes.string
-    })
+    }),
+    onMarkVideoAsWatched: PropTypes.func,
 };
 
 module.exports = Video;
