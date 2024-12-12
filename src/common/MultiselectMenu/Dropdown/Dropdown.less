@@ -2,6 +2,8 @@
 
 @import (reference) '~stremio/common/screen-sizes.less';
 
+@parent-height: 10rem;
+
 .dropdown {
     background: var(--modal-background-color);
     display: none;
@@ -16,7 +18,7 @@
 
     &.open {
         display: block;
-        max-height: calc(3.2rem * 10);
+        max-height: calc(3.3rem * 7);
         overflow: auto;
     }
 
@@ -33,10 +35,10 @@
     }
 }
 
-@media only screen and (max-width: @minimum) {
+@media (orientation: landscape) and (max-width: @xsmall) {
     .dropdown {
         &.open {
-            max-height: calc(3.2rem * 7);
+            max-height: calc(100dvh - var(--horizontal-nav-bar-size) - @parent-height);
         }
     }
 }
