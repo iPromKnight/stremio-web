@@ -81,7 +81,6 @@ const MetaDetails = ({ urlParams, queryParams }) => {
             <HorizontalNavBar
                 className={styles['nav-bar']}
                 backButton={true}
-                addonsButton={true}
                 fullscreenButton={true}
                 navMenu={true}
             />
@@ -210,7 +209,6 @@ const MetaDetailsFallback = () => (
         <HorizontalNavBar
             className={styles['nav-bar']}
             backButton={true}
-            addonsButton={true}
             fullscreenButton={true}
             navMenu={true}
         />

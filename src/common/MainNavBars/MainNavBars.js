@@ -24,7 +24,6 @@ const MainNavBars = React.memo(({ className, route, query, children }) => {
                 query={query}
                 backButton={false}
                 searchBar={true}
-                addonsButton={true}
                 fullscreenButton={true}
                 navMenu={true}
             />

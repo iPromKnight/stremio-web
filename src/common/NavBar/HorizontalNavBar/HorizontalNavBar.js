@@ -13,7 +13,7 @@ const NavMenu = require('./NavMenu');
 const styles = require('./styles');
 const { t } = require('i18next');
 
-const HorizontalNavBar = React.memo(({ className, route, query, title, backButton, searchBar, addonsButton, fullscreenButton, navMenu, ...props }) => {
+const HorizontalNavBar = React.memo(({ className, route, query, title, backButton, searchBar, fullscreenButton, navMenu, ...props }) => {
     const backButtonOnClick = React.useCallback(() => {
         window.history.back();
     }, []);
@@ -55,14 +55,6 @@ const HorizontalNavBar = React.memo(({ className, route, query, title, backButto
             }
             <div className={styles['buttons-container']}>
                 {
-                    addonsButton ?
-                        <Button className={styles['button-container']} href={'#/addons'} title={t('ADDONS')} tabIndex={-1}>
-                            <Icon className={styles['icon']} name={'addons-outline'} />
-                        </Button>
-                        :
-                        null
-                }
-                {
                     !isIOSPWA && fullscreenButton ?
                         <Button className={styles['button-container']} title={fullscreen ? t('EXIT_FULLSCREEN') : t('ENTER_FULLSCREEN')} tabIndex={-1} onClick={fullscreen ? exitFullscreen : requestFullscreen}>
                             <Icon className={styles['icon']} name={fullscreen ? 'minimize' : 'maximize'} />
@@ -90,7 +82,6 @@ HorizontalNavBar.propTypes = {
     title: PropTypes.string,
     backButton: PropTypes.bool,
     searchBar: PropTypes.bool,
-    addonsButton: PropTypes.bool,
     fullscreenButton: PropTypes.bool,
     navMenu: PropTypes.bool
 };
