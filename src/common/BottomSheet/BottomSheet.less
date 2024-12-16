@@ -87,7 +87,13 @@
     }
 }
 
-@media only screen and (min-width: @xsmall) {
+@media only screen and (min-width: @small) and (orientation: portait) {
+    .bottom-sheet {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: @xsmall) and (orientation: landscape) {
     .bottom-sheet {
         display: none;
     }
