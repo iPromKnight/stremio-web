@@ -19,15 +19,20 @@
             flex-direction: column;
             align-items: center;
             overflow: visible;
+            position: relative;
 
             .body-container {
                 overflow-y: visible;
             }
 
             .image {
-                width: 100%;
-                height: 100%;
-                margin-top: -10rem;
+                position: absolute;
+                top: -10rem;
+                left: 50%;
+                transform: translateX(-50%);
+                object-fit: cover;
+                width: 30rem;
+                height: 30rem;
             }
 
             .info-container {
@@ -36,8 +41,7 @@
                 align-items: center;
                 justify-content: center;
                 gap: 2.5rem;
-                padding: 1rem 4rem;
-                margin-top: -7rem;
+                padding: 10rem 4rem 0;
 
                 .title-container {
                     display: flex;
@@ -109,11 +113,12 @@
                 }
 
                 .image {
-                    margin-top: -5rem;
+                    position: relative;
+                    top: 0;
                 }
 
-                .info {
-                    margin-top: 0rem;
+                .info-container {
+                    padding: 1rem 4rem 0;
                 }
             }
         }
