@@ -12,6 +12,7 @@ const useRemoteAddons = require('./useRemoteAddons');
 const useAddonDetailsTransportUrl = require('./useAddonDetailsTransportUrl');
 const useSelectableInputs = require('./useSelectableInputs');
 const styles = require('./styles');
+const { AddonPlaceholder } = require('./AddonPlaceholder');
 
 const Addons = ({ urlParams, queryParams }) => {
     const { t } = useTranslation();
@@ -94,7 +95,7 @@ const Addons = ({ urlParams, queryParams }) => {
                     <div className={styles['spacing']} />
                     <Button className={styles['add-button-container']} title={t('ADD_ADDON')} onClick={openAddAddonModal}>
                         <Icon className={styles['icon']} name={'add'} />
-                        <div className={styles['add-button-label']}>{ t('ADD_ADDON') }</div>
+                        <div className={styles['add-button-label']}>{t('ADD_ADDON')}</div>
                     </Button>
                     <SearchBar
                         className={styles['search-bar']}
@@ -150,8 +151,10 @@ const Addons = ({ urlParams, queryParams }) => {
                                 </div>
                                 :
                                 remoteAddons.catalog.content.type === 'Loading' ?
-                                    <div className={styles['message-container']}>
-                                        Loading!
+                                    <div className={styles['addons-list-container']}>
+                                        {Array.from({ length: 6 }).map((_, index) => (
+                                            <AddonPlaceholder key={index} className={styles['addon']} />
+                                        ))}
                                     </div>
                                     :
                                     <div className={styles['addons-list-container']}>
@@ -179,8 +182,10 @@ const Addons = ({ urlParams, queryParams }) => {
                                         }
                                     </div>
                             :
-                            <div className={styles['message-container']}>
-                                No select
+                            <div className={styles['addons-list-container']}>
+                                {Array.from({ length: 6 }).map((_, index) => (
+                                    <AddonPlaceholder key={index} className={styles['addon']} />
+                                ))}
                             </div>
                 }
             </div>
@@ -205,7 +210,7 @@ const Addons = ({ urlParams, queryParams }) => {
                         title={t('ADD_ADDON')}
                         buttons={addAddonModalButtons}
                         onCloseRequest={closeAddAddonModal}>
-                        <div className={styles['notice']}>{ t('ADD_ADDON_DESCRIPTION') }</div>
+                        <div className={styles['notice']}>{t('ADD_ADDON_DESCRIPTION')}</div>
                         <TextInput
                             ref={addAddonUrlInputRef}
                             className={styles['addon-url-input']}
