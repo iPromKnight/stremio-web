@@ -19,6 +19,7 @@ export const AddonPlaceholder = ({ className }: Props) => {
                     <div className={styles['placeholder-pill']} />
                     <div className={styles['placeholder-pill']} />
                     <div className={styles['placeholder-pill']} />
+                    <div className={styles['placeholder-pill']} />
                 </div>
             </div>
             <div className={styles['buttons-container']}>
