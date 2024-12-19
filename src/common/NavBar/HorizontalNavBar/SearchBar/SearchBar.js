@@ -61,7 +61,7 @@ const SearchBar = React.memo(({ className, query, active }) => {
 
     const queryInputOnSubmit = React.useCallback((event) => {
         event.preventDefault();
-        const searchValue = `/search?search=${event.target.value}`;
+        const searchValue = `/search?search=${encodeURIComponent(event.target.value)}`;
         setCurrentQuery(searchValue);
         if (searchInputRef.current && searchValue) {
             window.location.hash = searchValue;
