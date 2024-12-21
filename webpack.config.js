@@ -182,6 +182,7 @@ module.exports = (env, argv) => ({
             ...env,
             DEBUG: argv.mode !== 'production',
             VERSION: pachageJson.version,
+            API_ENDPOINT: env.API_ENDPOINT || 'https://api.strem.io',
             COMMIT_HASH
         }),
         new webpack.ProvidePlugin({

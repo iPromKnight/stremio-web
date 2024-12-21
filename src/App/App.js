@@ -25,6 +25,7 @@ const App = () => {
     const services = React.useMemo(() => {
         const core = new Core({
             appVersion: process.env.VERSION,
+            apiEndpoint: process.env.API_ENDPOINT,
             shellVersion: null
         });
         return {
