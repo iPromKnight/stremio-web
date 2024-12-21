@@ -48,6 +48,8 @@ const StreamingServerWarning = ({ className }) => {
         return null;
     }
 
+    onDismissClick();
+
     return (
         <div className={classnames(className, styles['warning-container'])}>
             <div className={styles['warning-statement']}>{ t('SETTINGS_SERVER_UNAVAILABLE') }</div>

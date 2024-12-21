@@ -37,7 +37,7 @@ const MetaPreview = ({ className, compact, name, logo, background, runtime, rele
                         if (hostname === 'imdb.com') {
                             linksGroups.set(category, {
                                 label: name,
-                                href: `https://www.stremio.com/warning#${encodeURIComponent(url)}`
+                                href: url,
                             });
                         }
                     } else if (category === CONSTANTS.SHARE_LINK_CATEGORY) {
@@ -62,7 +62,7 @@ const MetaPreview = ({ className, compact, name, logo, background, runtime, rele
                             }
                             linksGroups.get(category).push({
                                 label: name,
-                                href: `https://www.stremio.com/warning#${encodeURIComponent(url)}`
+                                href: url,
                             });
                         }
                     }

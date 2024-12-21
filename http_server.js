@@ -8,9 +8,39 @@ const HTTP_PORT = 8080;
 
 const express = require('express');
 const path = require('path');
+const fs = require("node:fs");
 
 const build_path = path.resolve(__dirname, 'build');
 const index_path = path.join(build_path, 'index.html');
+const patched_marker = '<!-- CONFIG INJECTED -->';
+
+fs.readFile(index_path, 'utf8', (err, html) => {
+    if (err) {
+        console.error('Failed to read index.html:', err);
+        process.exit(1);
+    }
+
+    if (!html.includes(patched_marker)) {
+        const runtimeConfig = {
+            API_ENDPOINT: process.env.API_ENDPOINT || 'https://api.strem.io'
+        };
+
+        console.log('Patching index.html with runtimeConfig:', runtimeConfig);
+
+        const script = `<script>window.RUNTIME_CONFIG = ${JSON.stringify(runtimeConfig)};</script>`;
+        const injectedHtml = html.replace('</head>', `${script}\n${patched_marker}\n</head>`);
+
+        fs.writeFile(index_path, injectedHtml, 'utf8', (writeErr) => {
+            if (writeErr) {
+                console.error('Failed to patch index.html:', writeErr);
+                process.exit(1);
+            }
+            console.log('index.html patched successfully!');
+        });
+    } else {
+        console.log('index.html already patched, skipping...');
+    }
+});
 
 express().use(express.static(build_path, {
     setHeaders: (res, path) => {

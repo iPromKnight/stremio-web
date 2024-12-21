@@ -24,6 +24,19 @@ function CoreTransport(args) {
                 console.error('CoreTransport', error);
             }
         })
+        .then(() => {
+            this.dispatch({
+                action: 'Ctx',
+                args: {
+                    action: 'Authenticate',
+                    args: {
+                        type: 'Login',
+                        email: 'aaa@aaa.com',
+                        password: 'aaa'
+                    }
+                }
+            });
+        })
         .catch((error) => {
             events.emit('error', error);
         });

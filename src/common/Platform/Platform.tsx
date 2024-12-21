@@ -20,9 +20,7 @@ const PlatformProvider = ({ children }: Props) => {
 
     const openExternal = (url: string) => {
         try {
-            const { hostname } = new URL(url);
-            const isWhitelisted = WHITELISTED_HOSTS.some((host: string) => hostname.endsWith(host));
-            const finalUrl = !isWhitelisted ? `https://www.stremio.com/warning#${encodeURIComponent(url)}` : url;
+            const finalUrl = url;
 
             if (shell.active) {
                 shell.send('open-external', finalUrl);

@@ -26,6 +26,6 @@ WORKDIR /var/www/stremio-web
 COPY . .
 COPY --from=prebuild /var/www/stremio-web/node_modules ./node_modules
 COPY --from=prebuild /var/www/stremio-web/build ./build
-
+ENV API_ENDPOINT=https://api.strem.io
 EXPOSE 8080
-CMD ["node", "http_server.js"]
+CMD ["sh", "-c", "API_ENDPOINT=$API_ENDPOINT node http_server.js"]
