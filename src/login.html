@@ -71,14 +71,14 @@
 </head>
 <body>
 <div class="login-container">
-    <h1>Web Auth</h1>
-    <form action="/api/login" method="post">
+    <h1>Login</h1>
+    <form action="/api/login" method="post" autocomplete="on">
         <label for="auth_key">Auth Key:</label>
-        <input type="password" id="auth_key" name="auth_key" required>
+        <input type="password" id="auth_key" name="auth_key" autocomplete="current-password" required>
         <button type="submit">Login</button>
     </form>
     <div class="footer">
-        &copy; 2024 iPromKnight
+        No cats were harmed in the making of this website.
     </div>
 </div>
 </body>
