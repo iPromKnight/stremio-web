@@ -264,5 +264,10 @@ module.exports = (env, argv) => ({
             fingerprints: false,
             ios: true
         }),
+        new HtmlWebPackPlugin({
+            template: './src/login.html',
+            filename: 'login.html',
+            inject: false
+        }),
     ].filter(Boolean)
 });
