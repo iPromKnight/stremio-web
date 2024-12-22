@@ -22,7 +22,8 @@ fs.readFile(index_path, 'utf8', (err, html) => {
 
     if (!html.includes(patched_marker)) {
         const runtimeConfig = {
-            API_ENDPOINT: process.env.API_ENDPOINT || 'https://api.strem.io'
+            API_ENDPOINT: process.env.API_ENDPOINT || 'https://api.strem.io',
+            API_KEY: process.env.API_KEY || null,
         };
 
         console.log('Patching index.html with runtimeConfig:', runtimeConfig);

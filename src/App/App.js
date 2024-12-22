@@ -26,6 +26,7 @@ const App = () => {
         const core = new Core({
             appVersion: process.env.VERSION,
             apiEndpoint: window.RUNTIME_CONFIG.API_ENDPOINT,
+            apiKey: window.RUNTIME_CONFIG.API_KEY,
             shellVersion: null
         });
         return {

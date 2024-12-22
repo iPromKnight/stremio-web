@@ -7,7 +7,7 @@
     "license": "gpl-2.0",
     "scripts": {
         "start": "API_ENDPOINT=http://localhost:5248 webpack serve --mode development",
-        "node": "API_ENDPOINT=http://localhost:5248 node http_server.js",
+        "node": "API_ENDPOINT=http://localhost:5248 API_KEY=some-test-key node http_server.js",
         "start-prod": "webpack serve --mode production",
         "build": "webpack --mode production",
         "test": "jest",

@@ -395,9 +395,6 @@ function _init() {
               }
             }, arguments);
           };
-          imports.wbg.__wbg_log_bce7322d8c693e68 = function (arg0, arg1) {
-            console.log(getStringFromWasm0(arg0, arg1));
-          };
           imports.wbg.__wbindgen_string_new = function (arg0, arg1) {
             var ret = getStringFromWasm0(arg0, arg1);
             return addHeapObject(ret);
@@ -419,6 +416,13 @@ function _init() {
           imports.wbg.__wbg_static_accessor_API_URL_5e37ef2149b89214 = function (arg0) {
             var ret = self.api_endpoint;
             var ptr0 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+            var len0 = WASM_VECTOR_LEN;
+            getInt32Memory0()[arg0 / 4 + 1] = len0;
+            getInt32Memory0()[arg0 / 4 + 0] = ptr0;
+          };
+          imports.wbg.__wbg_static_accessor_API_KEY_72250dddd8cc4164 = function (arg0) {
+            var ret = self.api_key;
+            var ptr0 = isLikeNone(ret) ? 0 : passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
             var len0 = WASM_VECTOR_LEN;
             getInt32Memory0()[arg0 / 4 + 1] = len0;
             getInt32Memory0()[arg0 / 4 + 0] = ptr0;
@@ -735,12 +739,12 @@ function _init() {
             var ret = wasm.memory;
             return addHeapObject(ret);
           };
-          imports.wbg.__wbindgen_closure_wrapper4386 = function (arg0, arg1, arg2) {
-            var ret = makeMutClosure(arg0, arg1, 541, __wbg_adapter_28);
+          imports.wbg.__wbindgen_closure_wrapper4220 = function (arg0, arg1, arg2) {
+            var ret = makeMutClosure(arg0, arg1, 512, __wbg_adapter_28);
             return addHeapObject(ret);
           };
-          imports.wbg.__wbindgen_closure_wrapper7537 = function (arg0, arg1, arg2) {
-            var ret = makeMutClosure(arg0, arg1, 905, __wbg_adapter_31);
+          imports.wbg.__wbindgen_closure_wrapper7543 = function (arg0, arg1, arg2) {
+            var ret = makeMutClosure(arg0, arg1, 909, __wbg_adapter_31);
             return addHeapObject(ret);
           };
           if (typeof input === 'string' || typeof Request === 'function' && input instanceof Request || typeof URL === 'function' && input instanceof URL) {
